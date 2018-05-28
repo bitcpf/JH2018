@@ -1,0 +1,7 @@
+A manager
+A sales
+B manager
+B sales
+B assitant_professor 
+C assitant_professor 
+A assitant_professor

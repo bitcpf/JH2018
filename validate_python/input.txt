@@ -1,0 +1,6 @@
+def a():
+    if a:
+        a
+        b
+        c
+     done
