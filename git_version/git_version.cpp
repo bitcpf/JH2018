@@ -129,7 +129,7 @@ int main()
     for (auto c: everything) {
         cout << c->id << endl;
     }
-    auto lca = find_lca(all[3], all[4], max_id);
+    auto lca = find_lca(all[5], all[9], max_id);
     cout << "LCA is " << lca->id << endl;
     return 0;
 }

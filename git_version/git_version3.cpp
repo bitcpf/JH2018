@@ -42,12 +42,12 @@ vector<Commit*> find_all_commit(unordered_map<int, Commit*> commits, int max_id)
     while (!que.empty()) {
         Commit* commit = que.front();
         que.pop();
-        if (visited[commit->id]) {
-            continue;
-        }
         result.push_back(commit);
         visited[commit->id] = true;
         for (auto child: commit->children) {
+            if (visited[child->id]) {
+                continue;
+            }
             que.push(child);
         }
     }
@@ -140,6 +140,7 @@ int main(int argc, char** argv)
         cout << c->id << endl;
     }
     auto lca = find_lca(all[atoi(argv[2])], all[atoi(argv[3])], max_id);
+    //auto lca = find_lca(all[atoi(argv[4])], all[atoi(argv[8])], max_id);
     cout << "LCA is " << lca->id << endl;
     return 0;
 }

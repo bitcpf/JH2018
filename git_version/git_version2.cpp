@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include <fstream>
 #include <queue>
+#include <assert.h>
 
 using namespace std;
 
@@ -36,7 +37,6 @@ vector<Commit*> find_all_commit(unordered_map<int, Commit*> commits, int max_id)
     }
     vector<Commit*> result;
     queue<Commit*> que;
-    cout << "Root is " << head->id << endl;
     vector<bool> visited(max_id + 1, false);
     que.push(head);
     while (!que.empty()) {
@@ -131,7 +131,7 @@ int main(int argc, char** argv)
     for (auto c: everything) {
         cout << c->id << endl;
     }
-    auto lca = find_lca(all[atoi(argv[2])], all[atoi(argv[3])], max_id);
+    auto lca = find_lca(all[atoi(argv[5])], all[atoi(argv[8])], max_id);
     cout << "LCA is " << lca->id << endl;
     return 0;
 }
