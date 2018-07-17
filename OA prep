@@ -1,0 +1,86 @@
+package OA;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+
+
+public class Solution {
+    public List<String> commondWords(String paragraph, List<String> banned){
+    	List<String> res = new LinkedList<>();
+    	if(paragraph==null || paragraph.length()==0)
+    		return res;
+    	
+    	Set<String> resSet = new HashSet<>();
+    	Set<String> excluded = new HashSet<>();
+    	for(String ban : banned)
+    		excluded.add(ban.toLowerCase());
+    	
+    	String[] words = paragraph.toLowerCase().split("\\W+");
+    	int max = Integer.MIN_VALUE;
+    	Map<String, Integer> map = new HashMap<>();
+    	for(String word : words) {
+    		if(!excluded.contains(word)) {
+    			if(!map.containsKey(word))
+    				map.put(word, 0);
+    			map.put(word, map.get(word)+1);
+    			int freq = map.get(word);
+    			// when there is a new max
+    			if(freq>max) {
+    				max = freq;
+    				resSet.clear();
+    				resSet.add(word);
+    			}
+    			else if(freq==max) {
+    				resSet.add(word);
+    			}
+    		}
+    	}
+    	
+    	res.addAll(resSet);
+    	return res;
+    }
+    
+    public List<String> reorderLog(int logFileSize, List<String> logLines){
+    	Collections.sort(logLines, new Comparator<String>() {
+    		@Override
+    		public int compare(String a, String b) {
+    			boolean aIsNum = isNumber(a);
+    			boolean bIsNum = isNumber(b);
+    			if(aIsNum && bIsNum)
+    				return 0;
+    			if(aIsNum)
+    				return 1;
+    			if(bIsNum)
+    				return -1;
+    			
+    			String[] aStr = split(a);
+    			String[] bStr = split(b);
+    			if(aStr[1].equals(bStr[1]))
+    				return aStr[0].compareTo(bStr[0]);
+    			return aStr[1].compareTo(bStr[1]);
+    		}
+    	});
+    	
+    	return logLines;
+    }
+    
+    private boolean isNumber(String logLine) {
+    	int index = logLine.lastIndexOf(" ");
+    	String target = logLine.substring(index+1);
+    	return target.matches("[0-9]+");
+    }
+    
+    private String[] split(String logLine) {
+    	int index = logLine.indexOf(" ");
+    	return new String[] {logLine.substring(0, index).toLowerCase(), logLine.substring(index+1).toLowerCase()};
+    }
+}

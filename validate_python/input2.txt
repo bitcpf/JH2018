@@ -1,0 +1,10 @@
+def a():
+    if a:
+        a
+        c
+        done
+        d
+
+
+def bcd():
+    dgaljgf;l
