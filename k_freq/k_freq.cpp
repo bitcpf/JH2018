@@ -14,13 +14,12 @@ struct NumFreq {
 vector<int> get_freq(const vector<int>& array, int k)
 {
     vector<int> result;
-    //priority_queue<NumFreq*, cmp> queue;
+    priority_queue<NumFreq*, cmp> queue;
     unordered_map<int, int> freq;
     for (auto num: array) {
         queue.push(make_pair(num, 1));
     }
 }
-
 
 int main(int argc, char** argv)
 {

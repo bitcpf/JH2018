@@ -17,7 +17,7 @@ struct commit
 };
 
 
-    vector<int>
+vector<int>
 bfs_commit(unordered_map<int,commit> & all, int root)
 {
     vector<int> rst;

@@ -1,6 +1,14 @@
 def a():
     if a:
         a
-        b
         c
-     done
+        done
+        d
+#dgaf
+
+def bcd():
+    if cc:
+        if bb:
+            jd;lkfja;g
+       ji
+        ljd

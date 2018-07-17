@@ -100,6 +100,7 @@ int main(int argc, char** argv)
         streams.push_back(Stream(nums));
     }
 
+    cout << "Done input" << endl;
     auto result = merge(streams, atoi(argv[2]));
     for (auto a: result) {
         cout << " " << a;

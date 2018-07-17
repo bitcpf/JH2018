@@ -22,6 +22,6 @@ int find_sum(int dice_num, int face_num, int total)
 
 int main(int argc, char** argv)
 {
-    cout << "find_sum(3, 6, 19) = " << find_sum(3, 6, 19) << endl;
+    cout << "find_sum(3, 6, 18) = " << find_sum(3, 6, 18) << endl;
     return 0;
 }
